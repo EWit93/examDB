@@ -23,4 +23,12 @@ public class Exam {
     @Column(name ="dateofexam")
     private LocalDate date;
     private Integer duration;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student")
+    private Student student;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subject")
+    private Subject subject;
 }

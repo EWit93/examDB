@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -19,4 +21,12 @@ public class Student {
     private Long id;
     private String firstname;
     private String lastname;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student")
+    private List<Exam> examList;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "classname")
+    private SchoolClass schoolClass;
 }

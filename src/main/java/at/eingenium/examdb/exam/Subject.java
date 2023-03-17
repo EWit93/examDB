@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -21,4 +23,8 @@ public class Subject {
     private String shortname;
     @Column(nullable = false)
     private boolean written;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subject")
+    private List<Exam> examList;
 }
