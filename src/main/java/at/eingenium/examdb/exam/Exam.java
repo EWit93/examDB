@@ -6,18 +6,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 @Entity
-@Table(name="classname")
-public class SchoolClass {
+@Table(name="exam")
+public class Exam {
 
     @Id
     @GeneratedValue
-    @Column(name = "class_id")
+    @Column(name = "exam_id")
     private Long id;
-    @Column(name = "classname")
-    private String name;
+    @Column(name ="dateofexam")
+    private LocalDate date;
+    private Integer duration;
 }
